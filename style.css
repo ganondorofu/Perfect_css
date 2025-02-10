@@ -1,0 +1,49 @@
+/* 吹き出しのスタイル */
+.speech-bubble {
+    display: inline-block;
+    padding: 20px 30px;
+    border: 3px solid black;
+    border-radius: 20px;
+    font-size: 24px;
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    position: relative;
+    background-color: white;
+    width: 180px; /* 小さめにすることで文字がはみ出しやすくなる */
+    white-space: nowrap;
+    overflow: visible; /* はみ出すのを許可 */
+}
+
+/* 吹き出しの尻尾部分 */
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid black;
+}
+
+/* テキストを枠から大きくはみ出させる */
+.overflow-text {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(10%); /* 右にはみ出させる */
+    font-size: 36px; /* サイズを大きくして意図的にはみ出させる */
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* 背景設定 */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
