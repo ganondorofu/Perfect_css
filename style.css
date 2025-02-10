@@ -1,20 +1,46 @@
-/* 吹き出しのスタイル */
+/* 💥 ゲーミング背景用のアニメーション */
+@keyframes gaming-bg {
+    0% { background: linear-gradient(90deg, red, blue); }
+    20% { background: linear-gradient(90deg, orange, purple); }
+    40% { background: linear-gradient(90deg, yellow, cyan); }
+    60% { background: linear-gradient(90deg, green, magenta); }
+    80% { background: linear-gradient(90deg, blue, red); }
+    100% { background: linear-gradient(90deg, purple, orange); }
+}
+
+/* 💡 吹き出しのアニメーション（高速色変化） */
+@keyframes gaming-colors {
+    0% { border-color: red; color: red; }
+    20% { border-color: orange; color: orange; }
+    40% { border-color: yellow; color: yellow; }
+    60% { border-color: green; color: green; }
+    80% { border-color: blue; color: blue; }
+    100% { border-color: purple; color: purple; }
+}
+
+/* 🎮 ゲーミングモード時に全体を光らせる */
+.gaming-bg {
+    animation: gaming-bg 0.5s infinite alternate;
+}
+
+/* 💥 吹き出しの設定 */
 .speech-bubble {
     display: inline-block;
     padding: 20px 30px;
-    border: 3px solid black;
+    border: 5px solid black;
     border-radius: 20px;
     font-size: 24px;
     font-family: "Arial", sans-serif;
     text-align: center;
     position: relative;
     background-color: white;
-    width: 180px; /* 小さめにすることで文字がはみ出しやすくなる */
+    width: 200px;
     white-space: nowrap;
-    overflow: visible; /* はみ出すのを許可 */
+    overflow: visible;
+    transition: all 0.3s ease;
 }
 
-/* 吹き出しの尻尾部分 */
+/* 💡 吹き出しの尻尾 */
 .speech-bubble::after {
     content: "";
     position: absolute;
@@ -28,22 +54,36 @@
     border-top: 15px solid black;
 }
 
-/* テキストを枠から大きくはみ出させる */
+/* 📝 テキストを枠からはみ出させる */
 .overflow-text {
     display: inline-block;
     position: absolute;
     left: 50%;
-    transform: translateX(10%); /* 右にはみ出させる */
-    font-size: 36px; /* サイズを大きくして意図的にはみ出させる */
+    transform: translateX(10%);
+    font-size: 36px;
     font-weight: bold;
     white-space: nowrap;
 }
 
-/* 背景設定 */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+/* 🖲 ボタンのスタイル */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid black;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* 🔥 ボタンのホバー時 */
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+/* 💡 ゲーミングモード時の吹き出し */
+.gaming {
+    animation: gaming-colors 0.5s infinite alternate;
 }
